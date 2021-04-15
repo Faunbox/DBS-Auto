@@ -50,7 +50,7 @@ const TransparentBg = styled.div`
 `;
 
 const MenuButtonsCss = css`
-  font-size: 3.5rem;
+  font-size: 3rem;
   padding-left: 10%;
 
   path {

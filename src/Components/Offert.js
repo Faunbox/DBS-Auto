@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { WrappersStyle } from "../Theme/GlobalStyles";
 
 const SectionWrapper = styled.section`
-  padding: 5% 10%;
-  text-align: center;
-  font-size: 2.5rem;
-  min-height: 80vh;
+  ${WrappersStyle}
 `;
 
 const HeaderH2 = styled.h2`

@@ -1,4 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
+
+export const WrappersStyle = css`
+  padding: 5% 10%;
+  min-height: 80vh;
+  font-size: 2.5rem;
+  color: rgb(30, 30, 30);
+  text-align: center;
+`;
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -8,5 +16,10 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 10px;
   overflow-x: hidden;
+
+@media (min-width: 400px) {
+  font-size: 13px;
+}
+
 }
 `;

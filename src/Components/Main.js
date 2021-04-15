@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Slider from "./Slider";
+import { WrappersStyle } from "../Theme/GlobalStyles";
 
 const MainWrapper = styled.main`
-  padding: 5% 10%;
-  text-align: center;
+  ${WrappersStyle}
 `;
 
 const Header = styled.h1`

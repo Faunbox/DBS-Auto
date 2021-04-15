@@ -30,6 +30,10 @@ const Header = styled.h2`
   font-size: 2.5rem;
 `;
 
+const MuiButton = styled(Button)`
+  font-size: 5rem;
+`;
+
 export default function MediaCard() {
   const classes = useStyles();
 
@@ -51,9 +55,9 @@ export default function MediaCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <MuiButton size="large" color="primary">
           Link do otomoto
-        </Button>
+        </MuiButton>
       </CardActions>
     </Card>
   );

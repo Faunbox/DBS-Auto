@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import { WrappersStyle } from "../Theme/GlobalStyles";
 
 const CarsWrapper = styled.section`
-  text-align: center;
-  color: rgb(30, 30, 30);
-  padding: 4%;
-  min-height: 80vh;
+  ${WrappersStyle}
 `;
 
 const H1 = styled.h1`

@@ -4,13 +4,13 @@ import styled, { css } from "styled-components";
 import { GrMail, GrPhone, GrHome } from "react-icons/gr";
 import { IoCarSport } from "react-icons/io5";
 
+import { WrappersStyle } from "../Theme/GlobalStyles";
+
 const ContactWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  padding: 4%;
+  ${WrappersStyle}
 `;
 
 const IconWrapper = styled.div`
@@ -56,7 +56,7 @@ const Contact = () => {
       <IconWrapper>
         <Anchor href="mailto:arcydemon@poczta.onet.pl">
           <MailIcon />
-          arcydemon@poczta.onet.pl
+          kontakt@dbs-auto.pl
         </Anchor>
         <Anchor href="tel:608-674-158">
           <PhoneIcon />

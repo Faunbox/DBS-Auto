@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// eslint-disable-next-line
+import firebase from "./Components/firebase";
 
 import Footer from "./Components/Footer";
 import Main from "./Components/Main";
