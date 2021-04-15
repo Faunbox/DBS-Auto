@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import DarkModeToggle from "react-dark-mode-toggle";
-import { GrMenu } from "react-icons/gr";
+import Menu from "./Menu";
 
 const Nav = styled.nav`
   width: 100%;
@@ -19,10 +19,13 @@ const MenuWrapper = styled.div`
   padding-right: 20px;
 `;
 
-const CompName = styled.p`
+const CompName = styled(Link)`
   display: flex;
   justify-self: flex-start;
   font-size: 2.5rem;
+  color: rgb(30, 30, 30);
+  text-decoration: none;
+  cursor: pointer;
 `;
 
 const ToggleMenuWrapper = styled.div`
@@ -31,28 +34,12 @@ const ToggleMenuWrapper = styled.div`
   align-items: center;
 `;
 
-const Menu = styled(GrMenu)`
-  font-size: 3.5rem;
-  padding-left: 10%;
-
-  path {
-    stroke: rgb(30, 30, 30);
-  }
-`;
-
 const NavBar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
-
   return (
     <Nav>
       <MenuWrapper>
-        <CompName>DBS Auto</CompName>
+        <CompName to="/">DBS Auto</CompName>
         <ToggleMenuWrapper>
-          {/* <DarkModeToggle
-            onChange={setIsDarkMode}
-            checked={isDarkMode}
-            size={"6rem"}
-          /> */}
           <Menu />
         </ToggleMenuWrapper>
       </MenuWrapper>

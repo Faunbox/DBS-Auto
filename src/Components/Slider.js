@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Wrapper = styled.div`
@@ -20,10 +20,9 @@ const ImageElement = styled.img`
   min-height: auto;
 `;
 
-const LeftArrow = styled(IoIosArrowBack)`
+const arrowCss = css`
   position: absolute;
   top: 50%;
-  left: 2%;
   transform: translate(0, -50%);
   font-size: 3rem;
   color: black;
@@ -35,19 +34,14 @@ const LeftArrow = styled(IoIosArrowBack)`
   }
 `;
 
+const LeftArrow = styled(IoIosArrowBack)`
+  ${arrowCss}
+  left: 2%;
+`;
+
 const RightArrow = styled(IoIosArrowForward)`
-  position: absolute;
-  top: 50%;
+  ${arrowCss}
   right: 2%;
-  transform: translate(0, -50%);
-  font-size: 3rem;
-  color: black;
-  z-index: 10;
-  cursor: pointer;
-  transition: 0.5s ease;
-  &:hover {
-    transform: translate(0, -50%) scale(1.3);
-  }
 `;
 
 const ImagesData = [
