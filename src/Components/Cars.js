@@ -13,10 +13,16 @@ const H1 = styled.h1`
 
 const CardWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  max-width: 1400px;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 10% 0;
+  margin: 5%;
+
+  @media (min-width: 973px) {
+    justify-content: space-between;
+  }
 `;
 
 const Cars = () => {
@@ -24,6 +30,8 @@ const Cars = () => {
     <CarsWrapper>
       <H1>Samochody w ofercie</H1>
       <CardWrapper>
+        <Card />
+        <Card />
         <Card />
       </CardWrapper>
     </CarsWrapper>

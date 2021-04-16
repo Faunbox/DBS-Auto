@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { SliderImagesArr } from "../Data/Data";
 
 const Wrapper = styled.div`
   position: relative;
@@ -17,7 +18,6 @@ const ImageWrapper = styled.div`
 
 const ImageElement = styled.img`
   width: 100%;
-  min-height: auto;
 `;
 
 const arrowCss = css`
@@ -44,20 +44,7 @@ const RightArrow = styled(IoIosArrowForward)`
   right: 2%;
 `;
 
-const ImagesData = [
-  {
-    image: "https://picsum.photos/1024/640?random=1",
-  },
-  {
-    image: "https://picsum.photos/1024/640?random=2",
-  },
-  {
-    image: "https://picsum.photos/1024/640?random=3",
-  },
-  {
-    image: "https://picsum.photos/1024/640?random=4",
-  },
-];
+const ImagesData = SliderImagesArr;
 
 const Slider = () => {
   const [current, setCurrent] = useState(0);

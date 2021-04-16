@@ -2,9 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import { GrMail, GrPhone, GrHome } from "react-icons/gr";
-import { IoCarSport } from "react-icons/io5";
+// import { IoCarSport } from "react-icons/io5";
 
 import { WrappersStyle } from "../Theme/GlobalStyles";
+import Map from "./Map";
 
 const ContactWrapper = styled.section`
   display: flex;
@@ -46,14 +47,15 @@ const HomeIcon = styled(GrHome)`
   ${iconCss}
 `;
 
-const CarIcon = styled(IoCarSport)`
-  ${iconCss}
-`;
+// const CarIcon = styled(IoCarSport)`
+//   ${iconCss}
+// `;
 
 const Contact = () => {
   return (
     <ContactWrapper>
       <IconWrapper>
+        {/* <Map /> */}
         <Anchor href="mailto:arcydemon@poczta.onet.pl">
           <MailIcon />
           kontakt@dbs-auto.pl
@@ -62,14 +64,14 @@ const Contact = () => {
           <PhoneIcon />
           608-674-158
         </Anchor>
-        <Anchor>
+        <Anchor href="https://goo.gl/maps/swr5hRY3UATkh1XCA">
           <HomeIcon />
           34-300 Żywiec ul. Łagodna 53
         </Anchor>
-        <Anchor>
+        {/* <Anchor>
           <CarIcon />
           Strona otomoto
-        </Anchor>
+        </Anchor> */}
       </IconWrapper>
     </ContactWrapper>
   );

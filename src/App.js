@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import Main from "./Components/Main";
 import Nav from "./Components/Navbar";
 import Progress from "./Components/Progress";
+import CookieInfo from "./Components/CookieInfo";
 
 const OffertComponent = lazy(() => import("./Components/Offert"));
 const CarsComponent = lazy(() => import("./Components/Cars"));
@@ -27,6 +28,7 @@ function App() {
           </Switch>
         </Suspense>
         <Footer />
+        <CookieInfo />
       </div>
     </Router>
   );

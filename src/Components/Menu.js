@@ -23,8 +23,12 @@ const Anchor = styled(Link)`
 const Menu = () => {
   return (
     <Wrapper>
-      {navLinksArr.map((element) => {
-        return <Anchor to={element.href}>{element.name}</Anchor>;
+      {navLinksArr.map((element, index) => {
+        return (
+          <Anchor to={element.href} key={index}>
+            {element.name}
+          </Anchor>
+        );
       })}
     </Wrapper>
   );

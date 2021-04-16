@@ -47,28 +47,22 @@ html {
   }
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 1200px) {
   html {
-    font-size: 16px;
-  }
-  }
-
-  @media (min-width: 1023px) {
-  html {
-    font-size: 17px;
+    font-size: 14px;
   }
   }
 
   @media (min-width: 1200px) {
   html {
-    font-size: 18px;
+    margin: 0 auto;
   }
   }
 
   @media (min-width: 1600px) {
   html {
-    font-size: 20px;
-    margin: 0 auto;
+    font-size: 15px;
+    
   }
   }
 `;
