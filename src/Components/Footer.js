@@ -6,14 +6,14 @@ const FooterWrapper = styled.footer`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50px;
+  height: 5vh;
   background-color: rgb(30, 30, 30);
 `;
 
 const Content = styled.p`
   padding: 10px 0;
   color: rgb(220, 210, 220);
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;
 
 const Footer = () => {

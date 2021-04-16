@@ -8,7 +8,7 @@ const SectionWrapper = styled.section`
 
 const HeaderH2 = styled.h2`
   color: rgb(30, 30, 30);
-  font-size: 2.5rem;
+  font-size: 3rem;
   padding: 5% 0 0 0;
 `;
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import MenuBurger from "./MenuBurger";
 import Menu from "./Menu";
 
 const Nav = styled.nav`
@@ -20,18 +21,13 @@ const MenuWrapper = styled.div`
 `;
 
 const CompName = styled(Link)`
-  display: flex;
-  justify-self: flex-start;
+  /* display: flex;
+  justify-self: flex-start; */
+  width: auto;
   font-size: 2.5rem;
   color: rgb(30, 30, 30);
   text-decoration: none;
   cursor: pointer;
-`;
-
-const ToggleMenuWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 const NavBar = () => {
@@ -39,9 +35,8 @@ const NavBar = () => {
     <Nav>
       <MenuWrapper>
         <CompName to="/">DBS Auto</CompName>
-        <ToggleMenuWrapper>
-          <Menu />
-        </ToggleMenuWrapper>
+        <MenuBurger />
+        <Menu />
       </MenuWrapper>
     </Nav>
   );

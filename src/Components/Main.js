@@ -9,7 +9,7 @@ const MainWrapper = styled.main`
 
 const Header = styled.h1`
   color: rgb(30, 30, 30);
-  font-size: 4rem;
+  font-size: 3.5rem;
 `;
 
 const Content = styled.p`
