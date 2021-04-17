@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 const ImageWrapper = styled.div`
   opacity: ${(prop) => prop.opacity};
   transition: 1s ease;
+  text-align: center;
 `;
 
 const ImageElement = styled.img`

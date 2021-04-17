@@ -5,7 +5,7 @@ import { GrMail, GrPhone, GrHome } from "react-icons/gr";
 // import { IoCarSport } from "react-icons/io5";
 
 import { WrappersStyle } from "../Theme/GlobalStyles";
-import Map from "./Map";
+// import Map from "./Map";
 
 const ContactWrapper = styled.section`
   display: flex;
