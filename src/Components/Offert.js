@@ -45,6 +45,7 @@ const Content = styled.p`
 
 const ImageElement = styled.img`
   width: 100%;
+  height: 100%;
   padding: 0 0 5% 0;
   margin: 0 auto;
 
