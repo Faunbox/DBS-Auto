@@ -7,7 +7,8 @@ import { WrapperMenu } from "../Theme/GlobalStyles";
 import { navLinksArr } from "../Data/Data";
 
 const Wrapper = styled.div`
-  ${WrapperMenu}
+  ${WrapperMenu};
+  overflow: hidden;
 `;
 
 const Anchor = styled(Link)`
@@ -18,7 +19,7 @@ const Anchor = styled(Link)`
   overflow: hidden;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   @media (min-width: 850px) {

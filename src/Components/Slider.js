@@ -27,6 +27,23 @@ const ImageElement = styled.img`
   }
 `;
 
+const TextWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: ${(prop) => prop.opacity};
+  text-align: center;
+  font-size: 1.4rem;
+  color: rgb(240, 220, 220);
+  text-transform: capitalize;
+  text-shadow: 3px 2px 2px black;
+`;
+
+const TextElement = styled.h1`
+  width: 100%;
+`;
+
 const arrowCss = css`
   position: absolute;
   top: 50%;
@@ -36,6 +53,7 @@ const arrowCss = css`
   z-index: 10;
   cursor: pointer;
   transition: 1s ease;
+  filter: drop-shadow(0px 0px 1px white);
   &:hover {
     transform: translate(0, -50%) scale(1.3);
   }
@@ -51,17 +69,24 @@ const RightArrow = styled(IoIosArrowForward)`
   right: 2%;
 `;
 
-const ImagesData = SliderImagesArr;
-
 const Slider = () => {
   const [current, setCurrent] = useState(0);
-  const lenght = ImagesData.length - 1;
+  const imagesData = SliderImagesArr;
+  const lenght = imagesData.length - 1;
   const time = 5000;
+
+  const h1Text = [
+    "Sprzedaż samochodów",
+    "Wymiany olejów",
+    "Mechanika samochodowa",
+    "lakiery samochodowe i zaopatrzenie lakierni",
+  ];
 
   const nextSlide = () => setCurrent(current === lenght ? 0 : current + 1);
   const prevSlide = () => setCurrent(current === 0 ? lenght : current - 1);
 
   useEffect(() => {
+    imagesData.forEach((image) => (new Image().src = image));
     const interval = setInterval(() => {
       setCurrent(current === lenght ? 0 : current + 1);
     }, time);
@@ -73,7 +98,7 @@ const Slider = () => {
       <Wrapper>
         <RightArrow onClick={nextSlide} />
         <LeftArrow onClick={prevSlide} />
-        {ImagesData.map((data, index) => {
+        {imagesData.map((data, index) => {
           const imageProp = index === current ? 1 : 0;
           return (
             <ImageWrapper opacity={imageProp} key={index}>
@@ -81,6 +106,16 @@ const Slider = () => {
                 <ImageElement src={data.image} alt="test" key={index} />
               )}
             </ImageWrapper>
+          );
+        })}
+        {h1Text.map((data, index) => {
+          const textProp = index === current ? 1 : 0;
+          return (
+            <TextWrapper opacity={textProp} key={index}>
+              {index === current && (
+                <TextElement key={index}>{data}</TextElement>
+              )}
+            </TextWrapper>
           );
         })}
       </Wrapper>
