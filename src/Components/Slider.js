@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { SliderImagesArr } from "../Data/Data";
+
+import W211 from "../Images/w211.jpg";
+import Oil from "../Images/wymiana oleju.jpg";
+import Breakes from "../Images/tarcza.jpg";
 
 const Wrapper = styled.div`
   position: relative;
@@ -71,8 +74,12 @@ const RightArrow = styled(IoIosArrowForward)`
 
 const Slider = () => {
   const [current, setCurrent] = useState(0);
-  const imagesData = SliderImagesArr;
-  const lenght = imagesData.length - 1;
+  const sliderImagesArr = [
+    { name: "W211", image: W211 },
+    { name: "Wymiana oleju", image: Oil },
+    { name: "Wymiana tarcz hamulcowych", image: Breakes },
+  ];
+  const lenght = sliderImagesArr.length - 1;
   const time = 5000;
 
   const h1Text = [
@@ -86,7 +93,7 @@ const Slider = () => {
   const prevSlide = () => setCurrent(current === 0 ? lenght : current - 1);
 
   useEffect(() => {
-    imagesData.forEach((image) => (new Image().src = image));
+    sliderImagesArr.forEach((image) => (new Image().src = image));
     const interval = setInterval(() => {
       setCurrent(current === lenght ? 0 : current + 1);
     }, time);
@@ -98,7 +105,7 @@ const Slider = () => {
       <Wrapper>
         <RightArrow onClick={nextSlide} />
         <LeftArrow onClick={prevSlide} />
-        {imagesData.map((data, index) => {
+        {sliderImagesArr.map((data, index) => {
           const imageProp = index === current ? 1 : 0;
           return (
             <ImageWrapper opacity={imageProp} key={index}>

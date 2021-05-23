@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MenuBurger from "./MenuBurger";
 import Menu from "./Menu";
 
 const Nav = styled.nav`
+  position: ${(props) => props.position};
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
   padding: 10px;
-  background-color: rgb(220, 210, 220);
+  background-color: rgba(220, 210, 220, 0.6);
   color: rgb(30, 30, 30);
   font-size: 2.5rem;
+  z-index: 1;
+  transition: 1s ease;
 `;
 
 const MenuWrapper = styled.div`
@@ -21,20 +26,35 @@ const MenuWrapper = styled.div`
 `;
 
 const CompName = styled(Link)`
-  /* display: flex;
-  justify-self: flex-start; */
   width: auto;
   font-size: 2.5rem;
   color: rgb(30, 30, 30);
   text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
 `;
 
 const NavBar = () => {
+  const NavbarRef = useRef(null);
+  const [posistion, setPosistion] = useState("");
+
+  useEffect(() => {
+    function getNavbarHeight() {
+      const navbar = document.querySelector("nav");
+      let pageOffsetY = window.pageYOffset;
+      let navbarHeight = navbar.offsetHeight;
+      let navPosition = pageOffsetY > navbarHeight ? "fixed" : "none";
+      return setPosistion(navPosition);
+    }
+    window.addEventListener("scroll", getNavbarHeight);
+  }, [NavbarRef]);
+
   return (
-    <Nav>
+    <Nav ref={NavbarRef} position={posistion}>
       <MenuWrapper>
-        <CompName to="/">DBS Auto</CompName>
+        <CompName to="/">
+          DB<span style={{ color: "red" }}>S</span> Auto
+        </CompName>
         <MenuBurger />
         <Menu />
       </MenuWrapper>
