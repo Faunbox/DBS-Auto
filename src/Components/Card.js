@@ -34,15 +34,34 @@ const StyledMedia = styled(CardMedia)`
   }
 `;
 
+const CardHeader = styled.div`
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  color: rgb(30, 30, 30);
+  font-size: 2.5rem;
+`;
+
+const CardHeaderContent = styled.div`
+  flex: 1 1 auto;
+`;
+
+const CardHeaderTitle = styled.p`
+  display: block;
+  font-size: 2.4rem;
+  font-weight: bold;
+`;
+const CardHeaderSubTitle = styled.p`
+  display: block;
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+`;
+
 const Content = styled.p`
   padding: 5% 0;
   color: rgb(30, 30, 30);
   font-size: 1.5rem;
-`;
-
-const Header = styled.h2`
-  color: rgb(30, 30, 30);
-  font-size: 2.5rem;
 `;
 
 const MuiButton = styled(Button)`
@@ -52,25 +71,30 @@ const MuiButton = styled(Button)`
 export default function MediaCard() {
   return (
     <StyledCard>
+      <StyledMedia
+        image="https://picsum.photos/1024/640?random=7"
+        title="Zdjęcie samochodu"
+      />
+      <CardContent>
+        <CardHeader>
+          <CardHeaderContent>
+            <CardHeaderTitle>Toyota Auris</CardHeaderTitle>
+            <CardHeaderSubTitle>2.2 D4D 2008r</CardHeaderSubTitle>
+          </CardHeaderContent>
+        </CardHeader>
+        <Content>
+          Krótki opis samochodu Krótki opis samochodu Krótki opis samochodu
+          Krótki opis samochodu Krótki opis samochodu Krótki opis samochodu
+          Krótki opis samochodu
+        </Content>
+      </CardContent>
       <CardActionArea>
-        <StyledMedia
-          image="https://picsum.photos/1024/640?random=7"
-          title="Zdjęcie samochodu"
-        />
-        <CardContent>
-          <Header>Toyota Auris</Header>
-          <Content>
-            Krótki opis samochodu Krótki opis samochodu Krótki opis samochodu
-            Krótki opis samochodu Krótki opis samochodu Krótki opis samochodu
-            Krótki opis samochodu
-          </Content>
-        </CardContent>
+        <CardActions>
+          <MuiButton href="" size="large" color="primary">
+            Link do otomoto
+          </MuiButton>
+        </CardActions>
       </CardActionArea>
-      <CardActions>
-        <MuiButton size="large" color="primary">
-          Link do otomoto
-        </MuiButton>
-      </CardActions>
     </StyledCard>
   );
 }
