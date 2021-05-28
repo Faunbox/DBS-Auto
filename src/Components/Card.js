@@ -68,7 +68,7 @@ const MuiButton = styled(Button)`
   font-size: 5rem;
 `;
 
-export default function MediaCard() {
+export default function MediaCard({ car }) {
   return (
     <StyledCard>
       <StyledMedia
@@ -78,19 +78,17 @@ export default function MediaCard() {
       <CardContent>
         <CardHeader>
           <CardHeaderContent>
-            <CardHeaderTitle>Toyota Auris</CardHeaderTitle>
-            <CardHeaderSubTitle>2.2 D4D 2008r</CardHeaderSubTitle>
+            <CardHeaderTitle>{car.name}</CardHeaderTitle>
+            <CardHeaderSubTitle>
+              {car.engine} {car.year}
+            </CardHeaderSubTitle>
           </CardHeaderContent>
         </CardHeader>
-        <Content>
-          Krótki opis samochodu Krótki opis samochodu Krótki opis samochodu
-          Krótki opis samochodu Krótki opis samochodu Krótki opis samochodu
-          Krótki opis samochodu
-        </Content>
+        <Content>{car.desc}</Content>
       </CardContent>
       <CardActionArea>
         <CardActions>
-          <MuiButton href="" size="large" color="primary">
+          <MuiButton href={car.link} size="large" color="primary">
             Link do otomoto
           </MuiButton>
         </CardActions>

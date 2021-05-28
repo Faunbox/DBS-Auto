@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/firestore";
 
-const firebaseConfig = {
+const firebaseConfig = firebase.initializeApp({
   apiKey: "AIzaSyCCJDkXzH5g2_t9ORhA8itKkL-n5GPPOpc",
   authDomain: "dbs-auto-b8d0f.firebaseapp.com",
   projectId: "dbs-auto-b8d0f",
@@ -10,8 +10,8 @@ const firebaseConfig = {
   messagingSenderId: "509147101084",
   appId: "1:509147101084:web:7eaa82db921df1cdd7fa59",
   measurementId: "G-8X1H5BJJF0",
-};
+});
 
-firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-firebase.firestore();
+export const db = firebaseConfig.firestore();
+export default firebaseConfig;

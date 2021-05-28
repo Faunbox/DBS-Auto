@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Card from "./Card";
 import { WrappersStyle } from "../Theme/GlobalStyles";
 
+import { useData } from "../context/DataContext";
+
 const CarsWrapper = styled.section`
   ${WrappersStyle}
 `;
@@ -26,13 +28,14 @@ const CardWrapper = styled.div`
 `;
 
 const Cars = () => {
+  const { carsData } = useData();
   return (
     <CarsWrapper>
       <H1>Samochody w ofercie</H1>
       <CardWrapper>
-        <Card />
-        <Card />
-        <Card />
+        {carsData.map((car) => (
+          <Card key={car.id} car={car} />
+        ))}
       </CardWrapper>
     </CarsWrapper>
   );

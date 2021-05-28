@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { DataProvider } from "./context/DataContext";
 // eslint-disable-next-line
 import firebase from "./Components/firebase";
 
@@ -16,21 +17,23 @@ const ContactComponent = lazy(() => import("./Components/Contact"));
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Nav />
-        <Suspense fallback={<Progress />}>
-          <Switch>
-            <Route path="/" exact component={Main} />
-            <Route path="/oferta" component={OffertComponent} />
-            <Route path="/samochody" component={CarsComponent} />
-            <Route path="/kontakt" component={ContactComponent} />
-          </Switch>
-        </Suspense>
-        <Footer />
-        <CookieInfo />
-      </div>
-    </Router>
+    <DataProvider>
+      <Router>
+        <div className="App">
+          <Nav />
+          <Suspense fallback={<Progress />}>
+            <Switch>
+              <Route path="/" exact component={Main} />
+              <Route path="/oferta" component={OffertComponent} />
+              <Route path="/samochody" component={CarsComponent} />
+              <Route path="/kontakt" component={ContactComponent} />
+            </Switch>
+          </Suspense>
+          <Footer />
+          <CookieInfo />
+        </div>
+      </Router>
+    </DataProvider>
   );
 }
 
