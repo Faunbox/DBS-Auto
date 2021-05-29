@@ -72,7 +72,8 @@ export default function MediaCard({ car }) {
   return (
     <StyledCard>
       <StyledMedia
-        image="https://picsum.photos/1024/640?random=7"
+        // image="https://picsum.photos/1024/640?random=7"
+        image={car.image}
         title="Zdjęcie samochodu"
       />
       <CardContent>
@@ -88,7 +89,7 @@ export default function MediaCard({ car }) {
       </CardContent>
       <CardActionArea>
         <CardActions>
-          <MuiButton href={car.link} size="large" color="primary">
+          <MuiButton href={car.link} type="link" size="large" color="primary">
             Link do otomoto
           </MuiButton>
         </CardActions>

@@ -25,6 +25,7 @@ export function DataProvider({ children }) {
               year: data.data().year,
               desc: data.data().desc,
               link: data.data().link,
+              image: data.data().image,
             };
           })
         );

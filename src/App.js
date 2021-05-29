@@ -14,6 +14,7 @@ import CookieInfo from "./Components/CookieInfo";
 const OffertComponent = lazy(() => import("./Components/Offert"));
 const CarsComponent = lazy(() => import("./Components/Cars"));
 const ContactComponent = lazy(() => import("./Components/Contact"));
+const AdminPanel = lazy(() => import("./Components/AdminPanel"));
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/oferta" component={OffertComponent} />
               <Route path="/samochody" component={CarsComponent} />
               <Route path="/kontakt" component={ContactComponent} />
+              <Route path="/admin" component={AdminPanel} />
             </Switch>
           </Suspense>
           <Footer />
