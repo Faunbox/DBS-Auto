@@ -6,6 +6,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 
+import { useData } from "../context/DataContext";
+
 import styled from "styled-components";
 
 const StyledCard = styled(Card)`
@@ -70,8 +72,13 @@ const MuiButton = styled(Button)`
 `;
 
 export default function MediaCard({ car }) {
+  const { deleteCarData } = useData();
+
   return (
     <StyledCard>
+      <MuiButton onClick={() => deleteCarData(car.id)} color="primary">
+        Usuń samochód
+      </MuiButton>
       <StyledMedia
         image="https://picsum.photos/1024/640?random=7"
         // image={car.image}

@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/firestore";
 import "firebase/storage";
+import "firebase/auth";
 
 const firebaseConfig = firebase.initializeApp({
   apiKey: "AIzaSyCCJDkXzH5g2_t9ORhA8itKkL-n5GPPOpc",
@@ -15,5 +16,6 @@ const firebaseConfig = firebase.initializeApp({
 
 firebase.analytics();
 export const db = firebaseConfig.firestore();
-export default firebaseConfig;
+export const auth = firebaseConfig.auth();
 export const storage = firebaseConfig.storage();
+export default firebaseConfig;
