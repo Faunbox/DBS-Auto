@@ -5,6 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
 import styled from "styled-components";
 
@@ -12,7 +13,7 @@ const StyledCard = styled(Card)`
   max-width: 350px;
   width: 100%;
   font-size: 2.5rem;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
 
   @media (min-width: 1100px) {
     max-width: 380px;
@@ -63,20 +64,31 @@ const Content = styled.p`
   padding: 5% 0;
   color: rgb(30, 30, 30);
   font-size: 1.5rem;
+  margin-left: auto;
+`;
+
+const Price = styled.p`
+  padding: 5% 0;
+  color: rgb(30, 30, 30);
+  font-size: 0.9375rem;
+  margin-left: auto;
 `;
 
 const MuiButton = styled(Button)`
   font-size: 5rem;
 `;
 
+const useStyles = makeStyles({
+  price: {
+    marginLeft: "auto",
+  },
+});
+
 export default function MediaCard({ car }) {
+  const classes = useStyles();
   return (
     <StyledCard>
-      <StyledMedia
-        image="https://picsum.photos/1024/640?random=7"
-        // image={car.image}
-        title="Zdjęcie samochodu"
-      />
+      <StyledMedia image={car.image} title="Zdjęcie samochodu" />
       <CardContent>
         <CardHeader>
           <CardHeaderContent>
@@ -89,10 +101,11 @@ export default function MediaCard({ car }) {
         <Content>{car.desc}</Content>
       </CardContent>
       <CardActionArea>
-        <CardActions>
+        <CardActions disableSpacing>
           <MuiButton href={car.link} type="link" size="large" color="primary">
             Link do otomoto
           </MuiButton>
+          <Price className={classes.price}>{car.price}</Price>
         </CardActions>
       </CardActionArea>
     </StyledCard>

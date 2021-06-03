@@ -44,7 +44,8 @@ const NavBar = () => {
       let pageOffsetY = window.pageYOffset;
       let navbarHeight = navbar.offsetHeight;
       let navPosition = pageOffsetY > navbarHeight ? "fixed" : "none";
-      return setPosistion(navPosition);
+      setPosistion(navPosition);
+      return getNavbarHeight;
     }
     window.addEventListener("scroll", getNavbarHeight);
   }, [NavbarRef]);

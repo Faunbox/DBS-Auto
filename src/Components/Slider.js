@@ -108,7 +108,7 @@ const Slider = () => {
         {sliderImagesArr.map((data, index) => {
           const imageProp = index === current ? 1 : 0;
           return (
-            <ImageWrapper opacity={imageProp} key={index}>
+            <ImageWrapper opacity={imageProp} key={data.name}>
               {index === current && (
                 <ImageElement src={data.image} alt="test" key={index} />
               )}
@@ -118,9 +118,9 @@ const Slider = () => {
         {h1Text.map((data, index) => {
           const textProp = index === current ? 1 : 0;
           return (
-            <TextWrapper opacity={textProp} key={index}>
+            <TextWrapper opacity={textProp} key={data}>
               {index === current && (
-                <TextElement key={index}>{data}</TextElement>
+                <TextElement key={data + index}>{data}</TextElement>
               )}
             </TextWrapper>
           );

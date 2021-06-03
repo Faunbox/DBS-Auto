@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { db } from "../Components/firebase";
+import { db, storage } from "../Components/firebase";
 import firebase from "firebase/app";
 
 const DataContext = createContext();
@@ -12,24 +12,28 @@ export function useData() {
 export function DataProvider({ children }) {
   const [carsData, setCarsData] = useState([]);
 
-  function addCarData(name, engine, year, desc, link, image) {
+  function addCarData(name, engine, year, desc, price, link, image, imageName) {
     return {
       name: name,
       engine: engine,
       year: year,
       link: link,
       desc: desc,
+      price: price,
       image: image,
+      imageName: imageName,
       time: firebase.firestore.FieldValue.serverTimestamp(),
     };
   }
 
-  function deleteCarData(id) {
+  function deleteCarData(id, imageName) {
     db.collection("cars_list").doc(id).delete();
+    // console.log(storage.ref().child(`${imageName}`).delete());
   }
 
   useEffect(() => {
-    db.collection("cars_list")
+    const unsubscribe = db
+      .collection("cars_list")
       .orderBy("time", "desc")
       .onSnapshot((querySnapshot) => {
         setCarsData(
@@ -43,10 +47,13 @@ export function DataProvider({ children }) {
               desc: data.data().desc,
               link: data.data().link,
               image: data.data().image,
+              price: data.data().price,
             };
           })
         );
       });
+    return unsubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const value = {

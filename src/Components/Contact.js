@@ -47,10 +47,6 @@ const HomeIcon = styled(GrHome)`
   ${iconCss}
 `;
 
-// const CarIcon = styled(IoCarSport)`
-//   ${iconCss}
-// `;
-
 const Contact = () => {
   return (
     <ContactWrapper>
