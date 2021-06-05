@@ -38,6 +38,8 @@ export default function AdminPanel() {
   const [carDescription, setDescription] = useState();
   const [carPrice, setCarPrice] = useState();
   const [carImage, setCarImage] = useState();
+  const [isUpload, setIsUpload] = useState(false);
+  const [uploadProcente, setUploadProcente] = useState();
 
   const { addCarData } = useData();
   const { logout } = useAuth();
@@ -55,9 +57,27 @@ export default function AdminPanel() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const imageRef = storage.ref().child(carImage.name);
-    await imageRef.put(carImage);
-    let imageUrl = await imageRef.getDownloadURL();
+    setUploadProcente();
+    await storage.ref().child(carImage.name).put(carImage);
+    const imageRef = storage.ref().child(carImage.name).put(carImage);
+    let url = await storage.ref(carImage.name).getDownloadURL();
+    imageRef.on(
+      "state_changed",
+      //on uploading
+      (snapshot) => {
+        setUploadProcente("");
+        setIsUpload(true);
+        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadProcente(Math.floor(progress));
+      },
+      //on error
+      (error) => console.log(error),
+      //On complete
+      () => {
+        setTimeout(() => setIsUpload(false), 4000);
+      }
+    );
+
     db.collection("cars_list")
       .add(
         addCarData(
@@ -67,11 +87,11 @@ export default function AdminPanel() {
           carDescription,
           carPrice,
           carLink,
-          imageUrl,
+          url,
           carImage.name
         )
       )
-      .catch((err) => console.log(err.code));
+      .catch((err) => console.log("błąd numer:" + err.code));
     clearAllTextFields();
   }
 
@@ -148,7 +168,7 @@ export default function AdminPanel() {
         <Input
           id="image-import"
           inputProps={{
-            accept: ".img, .png",
+            accept: ".img, .png, .jpg",
           }}
           onChange={(e) => setCarImage(e.target.files[0])}
           type="file"
@@ -157,6 +177,7 @@ export default function AdminPanel() {
           Dodaj samochód
         </Button>
       </Form>
+      {isUpload && <div>Upload: {uploadProcente}%</div>}
       <Cars />
     </>
   );

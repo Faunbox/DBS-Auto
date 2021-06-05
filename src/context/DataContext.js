@@ -17,9 +17,9 @@ export function DataProvider({ children }) {
       name: name,
       engine: engine,
       year: year,
-      link: link,
       desc: desc,
       price: price,
+      link: link,
       image: image,
       imageName: imageName,
       time: firebase.firestore.FieldValue.serverTimestamp(),
@@ -28,7 +28,7 @@ export function DataProvider({ children }) {
 
   function deleteCarData(id, imageName) {
     db.collection("cars_list").doc(id).delete();
-    // console.log(storage.ref().child(`${imageName}`).delete());
+    storage.ref().child(imageName).delete();
   }
 
   useEffect(() => {
@@ -48,6 +48,7 @@ export function DataProvider({ children }) {
               link: data.data().link,
               image: data.data().image,
               price: data.data().price,
+              imageName: data.data().imageName,
             };
           })
         );
