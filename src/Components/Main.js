@@ -12,7 +12,7 @@ const Header = styled.h1`
   font-size: 3.5rem;
 `;
 
-const Content = styled.p`
+export const Content = styled.p`
   padding: 5% 0;
   color: rgb(30, 30, 30);
   font-size: 2rem;

@@ -11,6 +11,7 @@ import { useData } from "../context/DataContext";
 import { useAuth } from "../context/AuthContex";
 
 import Cars from "./Cars";
+import Upload from "./Upload";
 
 const Form = styled.form`
   display: flex;
@@ -52,15 +53,13 @@ export default function AdminPanel() {
     setCarLink("");
     setDescription("");
     setCarPrice("");
-    setCarImage("");
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
     setUploadProcente();
-    await storage.ref().child(carImage.name).put(carImage);
     const imageRef = storage.ref().child(carImage.name).put(carImage);
-    let url = await storage.ref(carImage.name).getDownloadURL();
+
     imageRef.on(
       "state_changed",
       //on uploading
@@ -73,25 +72,26 @@ export default function AdminPanel() {
       //on error
       (error) => console.log(error),
       //On complete
-      () => {
+      async () => {
+        let url = await storage.ref(carImage.name).getDownloadURL();
+        db.collection("cars_list")
+          .add(
+            addCarData(
+              carName,
+              carEngine,
+              carYear,
+              carDescription,
+              carPrice,
+              carLink,
+              url,
+              carImage.name
+            )
+          )
+          .catch((err) => console.log("błąd numer:" + err.code));
         setTimeout(() => setIsUpload(false), 4000);
       }
     );
 
-    db.collection("cars_list")
-      .add(
-        addCarData(
-          carName,
-          carEngine,
-          carYear,
-          carDescription,
-          carPrice,
-          carLink,
-          url,
-          carImage.name
-        )
-      )
-      .catch((err) => console.log("błąd numer:" + err.code));
     clearAllTextFields();
   }
 
@@ -177,7 +177,7 @@ export default function AdminPanel() {
           Dodaj samochód
         </Button>
       </Form>
-      {isUpload && <div>Upload: {uploadProcente}%</div>}
+      {isUpload && <Upload value={uploadProcente} />}
       <Cars />
     </>
   );
