@@ -93,7 +93,7 @@ const Slider = () => {
   const prevSlide = () => setCurrent(current === 0 ? lenght : current - 1);
 
   useEffect(() => {
-    sliderImagesArr.forEach((image) => (new Image().src = image));
+    sliderImagesArr.forEach((image) => (new Image().src = image.image));
     const interval = setInterval(() => {
       setCurrent(current === lenght ? 0 : current + 1);
     }, time);
@@ -110,7 +110,12 @@ const Slider = () => {
           return (
             <ImageWrapper opacity={imageProp} key={data.name}>
               {index === current && (
-                <ImageElement src={data.image} alt="test" key={index} />
+                <ImageElement
+                  loading="lazy"
+                  src={data.image}
+                  alt="test"
+                  key={index}
+                />
               )}
             </ImageWrapper>
           );

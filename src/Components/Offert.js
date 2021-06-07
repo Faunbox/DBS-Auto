@@ -89,7 +89,7 @@ const Offert = () => {
         </SegmentWrapper>
         <HeaderH3>Detailing</HeaderH3>
         <SegmentWrapper>
-          <ImageElement src={Detailing} alt="Detailing Żywiec" />
+          <ImageElement loading="lazy" src={Detailing} alt="Detailing Żywiec" />
           <Content>
             Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki
             opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis
