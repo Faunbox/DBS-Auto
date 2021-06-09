@@ -13,7 +13,7 @@ import { useAuth } from "../context/AuthContex";
 import Cars from "./Cars";
 import Upload from "./Upload";
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -24,7 +24,7 @@ const Form = styled.form`
 const useStyles = makeStyles({
   textField: {
     width: "auto",
-    margin: 10,
+    margin: "10px",
   },
   logOut: {
     margin: "10px",
@@ -110,7 +110,7 @@ export default function AdminPanel() {
           type="text"
           className={classes.textField}
           multiline
-          size="medium"
+          // size="medium"
           variant="outlined"
           value={carName}
           onChange={(e) => setCarName(e.target.value)}
@@ -127,7 +127,7 @@ export default function AdminPanel() {
         />
         <TextField
           id="standard-textarea"
-          label="Rocznik samochodu"
+          label="Rocznik"
           type="text"
           className={classes.textField}
           multiline
@@ -147,7 +147,7 @@ export default function AdminPanel() {
         />
         <TextField
           id="standard-textarea"
-          label="Krótki opis samochodu"
+          label="Opis samochodu"
           type="text"
           className={classes.textField}
           multiline
