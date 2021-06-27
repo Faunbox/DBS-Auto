@@ -4,7 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import W211 from "../Images/w211.jpg";
 import Oil from "../Images/wymiana oleju.jpg";
-import Breakes from "../Images/tarcza.jpg";
+import Breakes from "../Images/IMG_20200903_091034(1).jpg";
 
 const Wrapper = styled.div`
   position: relative;
@@ -77,15 +77,15 @@ const Slider = () => {
   const sliderImagesArr = [
     { name: "W211", image: W211 },
     { name: "Wymiana oleju", image: Oil },
-    { name: "Wymiana tarcz hamulcowych", image: Breakes },
+    { name: "Diagnostyka komputerowa", image: Breakes },
   ];
   const lenght = sliderImagesArr.length - 1;
   const time = 5000;
 
   const h1Text = [
     "Sprzedaż samochodów",
-    "Wymiany olejów",
-    "Mechanika samochodowa",
+    "Auto kosmetyka",
+    "Diagnostyka komputerowa",
   ];
 
   const nextSlide = () => setCurrent(current === lenght ? 0 : current + 1);

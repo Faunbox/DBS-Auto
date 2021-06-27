@@ -4,16 +4,10 @@ import { WrappersStyle } from "../Theme/GlobalStyles";
 
 //images
 import Detailing from "../Images/detailing.jpg";
-import S from "../Images/S.jpg";
+import SD from "../Images/IMG_20190507_161304(2).jpg";
 
 const SectionWrapper = styled.section`
   ${WrappersStyle}
-`;
-
-const HeaderH2 = styled.h2`
-  color: rgb(30, 30, 30);
-  font-size: 3rem;
-  padding: 5% 0 2% 0;
 `;
 
 const OffertWrapper = styled.div`
@@ -25,19 +19,26 @@ const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 150%;
+  width: 100%;
 `;
 
 const SegmentWrapper = styled.div`
+  display: flex;
+  flex-direction: ${({ revers }) => (revers ? "column-reverse" : "column")};
   @media (min-width: 1024px) {
-    display: flex;
+    flex-direction: row;
   }
+`;
+
+const HeaderH2 = styled.h2`
+  color: rgb(30, 30, 30);
+  font-size: 3rem;
+  padding: 0 0 2% 0;
 `;
 
 const HeaderH3 = styled.h3`
   color: rgb(30, 30, 30);
   font-size: 2.2rem;
-  padding: 5% 0;
 `;
 
 const Content = styled.p`
@@ -46,26 +47,28 @@ const Content = styled.p`
   text-align: left;
 
   @media (min-width: 1024px) {
-    padding: 0 2%;
+    margin: 0 5%;
   }
 `;
 
 const ImageElement = styled.img`
   width: 100%;
   height: auto;
-  margin: 0 auto 5% auto;
+  margin: 5% auto 0 auto;
 
   @media (min-width: 500px) {
-    width: 80%;
-    margin: 0 auto;
+    width: ${({ big }) => (big ? "60%" : "80%")};
+    margin: 5% auto;
   }
 
   @media (min-width: 800px) {
-    width: 65%;
+    width: ${({ big }) => (big ? "55%" : "65%")};
+    margin: ${({ big }) => big && "5% auto"};
   }
 
   @media (min-width: 1024px) {
-    width: 1000px;
+    width: ${({ big }) => (big ? "650px" : "1000px")};
+    margin: ${({ big }) => big && "5% auto"};
     height: auto;
   }
 `;
@@ -101,10 +104,11 @@ const Offert = () => {
               Możliwy dojazd po wcześniejszym uzgodnieniu - 1 PLN/km.
             </Content>
           </ColumnWrapper>
+          <ImageElement src={SD} alt="Diagnostyka komputerowa" big />
         </SegmentWrapper>
 
         <HeaderH3>Sprzedaż samochodów</HeaderH3>
-        <SegmentWrapper>
+        <SegmentWrapper revers>
           <ImageElement
             loading="lazy"
             src={Detailing}
@@ -127,7 +131,6 @@ const Offert = () => {
 
         <HeaderH3>Auto kosmetyka</HeaderH3>
         <SegmentWrapper>
-          <ImageElement loading="lazy" src={Detailing} alt="Detailing Żywiec" />
           <ColumnWrapper>
             <Content>
               Oferujemy kompleksowe czyszczenie i pielęgnację aut. Korzystamy z
@@ -142,6 +145,7 @@ const Offert = () => {
               <li> - Korekta lakieru (polerowanie)</li>
             </Ul>
           </ColumnWrapper>
+          <ImageElement loading="lazy" src={Detailing} alt="Detailing Żywiec" />
         </SegmentWrapper>
       </OffertWrapper>
     </SectionWrapper>
