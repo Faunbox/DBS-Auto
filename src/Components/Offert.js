@@ -16,9 +16,16 @@ const HeaderH2 = styled.h2`
   padding: 5% 0 2% 0;
 `;
 
-const DiscWrapper = styled.div`
+const OffertWrapper = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 150%;
 `;
 
 const SegmentWrapper = styled.div`
@@ -45,9 +52,8 @@ const Content = styled.p`
 
 const ImageElement = styled.img`
   width: 100%;
-  height: 100%;
-  padding: 0 0 5% 0;
-  margin: 0 auto;
+  height: auto;
+  margin: 0 auto 5% auto;
 
   @media (min-width: 500px) {
     width: 80%;
@@ -56,11 +62,23 @@ const ImageElement = styled.img`
 
   @media (min-width: 800px) {
     width: 65%;
-    margin: 0 auto;
   }
 
   @media (min-width: 1024px) {
-    width: 100%;
+    width: 1000px;
+    height: auto;
+  }
+`;
+
+const Ul = styled.ul`
+  padding: 5px;
+  list-style: none;
+  text-align: left;
+  color: inherit;
+  font-size: 1.5rem;
+
+  @media (min-width: 1024px) {
+    padding: 15px 2%;
   }
 `;
 
@@ -68,35 +86,64 @@ const Offert = () => {
   return (
     <SectionWrapper>
       <HeaderH2>Oferta</HeaderH2>
-      <DiscWrapper>
+      <OffertWrapper>
         <HeaderH3>Diagnostyka komputerowa</HeaderH3>
         <SegmentWrapper>
-          <Content>
-            Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki
-            opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis
-            Krótki opis Krótki opis Krótki opis
-          </Content>
+          <ColumnWrapper>
+            <Content>
+              Firma DBS oferuje usługę diagnostyki komputerowej samochodów marki
+              Mercedes - wszystkie modele do roku 2014. Diagnostyka wykonywana
+              jest za pomocą oryginalnego urządzenia Mercedes-Benz Star
+              Diagnosis (dokładnie takim jak w ASO Mercedes-Benz).
+            </Content>
+            <br />
+            <Content>
+              Możliwy dojazd po wcześniejszym uzgodnieniu - 1 PLN/km.
+            </Content>
+          </ColumnWrapper>
         </SegmentWrapper>
 
         <HeaderH3>Sprzedaż samochodów</HeaderH3>
         <SegmentWrapper>
-          <ImageElement src={S} alt="Samochody używane" />
-          <Content>
-            Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki
-            opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis
-            Krótki opis Krótki opis Krótki opis
-          </Content>
+          <ImageElement
+            loading="lazy"
+            src={Detailing}
+            alt="Sprzedaż samochodów"
+          />
+          <ColumnWrapper>
+            <Content>
+              Wybór samochodu (zwłaszcza używanego) to skomplikowany, często
+              emocjonalny proces. Nasza strona pomoże Ci w bezpieczny, wygodny i
+              zrozumiały sposób wybrać samochód w sposób bezpieczny.
+            </Content>
+            <Content>
+              Każdy oferowany przez nas samochód ma w pełni udokumentowaną
+              historię i przeszedł dokładną inspekcję. Wszystkie egzemplarze
+              posiadają ważne badania techniczne i są gotowe do drogi. Możesz je
+              sprawdzić podczas jazdy próbnej.
+            </Content>
+          </ColumnWrapper>
         </SegmentWrapper>
-        <HeaderH3>Detailing</HeaderH3>
+
+        <HeaderH3>Auto kosmetyka</HeaderH3>
         <SegmentWrapper>
           <ImageElement loading="lazy" src={Detailing} alt="Detailing Żywiec" />
-          <Content>
-            Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki
-            opis Krótki opis Krótki opis Krótki opis Krótki opis Krótki opis
-            Krótki opis Krótki opis Krótki opis
-          </Content>
+          <ColumnWrapper>
+            <Content>
+              Oferujemy kompleksowe czyszczenie i pielęgnację aut. Korzystamy z
+              najwyższej jakości kosmetyków oraz przykładamy bardzo dużą
+              staranność do każdego detalu. Oferujemy między innymi:
+            </Content>
+            <Ul>
+              <li> - Mycie</li>
+              <li>- Sprzątanie samochodu</li>
+              <li>- Pranie tapicerki</li>
+              <li>- Woskowanie</li>
+              <li> - Korekta lakieru (polerowanie)</li>
+            </Ul>
+          </ColumnWrapper>
         </SegmentWrapper>
-      </DiscWrapper>
+      </OffertWrapper>
     </SectionWrapper>
   );
 };

@@ -18,14 +18,31 @@ export const Content = styled.p`
   font-size: 2rem;
 `;
 
+const Ul = styled.ul`
+  padding: 15px 0;
+  list-style: none;
+  text-align: center;
+  color: inherit;
+  font-size: 2rem;
+`;
+
+const Li = styled.li``;
+
 const Main = () => {
   return (
     <>
       <Slider />
       <MainWrapper>
         <Header>Witamy na stronie DBS Auto!</Header>
-        <Content>Firma DBS świadczy usługi w zakresie blablablablabla</Content>
-        <Content>Nasza firma powstała w roku blablablablabla</Content>
+        <Content>
+          Firma DBS zrodziła się z pasji do samochodów i świadczy usługi w
+          zakresie:
+        </Content>
+        <Ul>
+          <Li>- Diagnostyki komputerowej</Li>
+          <Li> - Auto kosmetyki</Li>
+          <Li> - Sprzedaży samochodów używanych</Li>{" "}
+        </Ul>
         <Content>Zapraszamy do współpracy!</Content>
       </MainWrapper>
     </>

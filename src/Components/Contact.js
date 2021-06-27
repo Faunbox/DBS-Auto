@@ -2,10 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import { GrMail, GrPhone, GrHome } from "react-icons/gr";
-// import { IoCarSport } from "react-icons/io5";
 
 import { WrappersStyle } from "../Theme/GlobalStyles";
-// import Map from "./Map";
 
 const ContactWrapper = styled.section`
   display: flex;
@@ -51,8 +49,7 @@ const Contact = () => {
   return (
     <ContactWrapper>
       <IconWrapper>
-        {/* <Map /> */}
-        <Anchor href="mailto:arcydemon@poczta.onet.pl">
+        <Anchor href="mailto:dbs.zywiec@gmail.com">
           <MailIcon />
           kontakt@dbs-auto.pl
         </Anchor>
@@ -64,10 +61,6 @@ const Contact = () => {
           <HomeIcon />
           34-300 Żywiec ul. Łagodna 53
         </Anchor>
-        {/* <Anchor>
-          <CarIcon />
-          Strona otomoto
-        </Anchor> */}
       </IconWrapper>
     </ContactWrapper>
   );

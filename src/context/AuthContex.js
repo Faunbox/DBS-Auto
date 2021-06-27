@@ -19,6 +19,7 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
+    if (currentUser) logout();
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);

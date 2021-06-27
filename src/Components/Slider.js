@@ -86,7 +86,6 @@ const Slider = () => {
     "Sprzedaż samochodów",
     "Wymiany olejów",
     "Mechanika samochodowa",
-    "lakiery samochodowe i zaopatrzenie lakierni",
   ];
 
   const nextSlide = () => setCurrent(current === lenght ? 0 : current + 1);
