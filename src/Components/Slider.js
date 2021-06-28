@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import W211 from "../Images/w211.jpg";
-import Oil from "../Images/wymiana oleju.jpg";
-import Breakes from "../Images/IMG_20200903_091034(1).jpg";
+import Oil from "../Images/AdobeStock_296204883-min.jpeg";
+import Breakes from "../Images/IMG_20200903_091034(1)-min.jpg";
 
 const Wrapper = styled.div`
   position: relative;
