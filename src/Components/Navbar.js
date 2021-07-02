@@ -6,8 +6,6 @@ import Menu from "./Menu";
 
 const Nav = styled.nav`
   position: ${({ position }) => position};
-  top: 0;
-  left: 0;
   width: 100%;
   max-width: 1400px;
   height: auto;

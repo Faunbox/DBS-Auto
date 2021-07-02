@@ -21,10 +21,9 @@ const ImageWrapper = styled.div`
 `;
 
 const ImageElement = styled.img`
-  width: 100%;
+  width: 70vw;
 
   @media (min-width: 760px) {
-    width: 80%;
     max-height: 500px;
     object-fit: cover;
   }

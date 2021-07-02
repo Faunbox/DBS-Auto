@@ -51,7 +51,7 @@ const Contact = () => {
       <IconWrapper>
         <Anchor href="mailto:dbs.zywiec@gmail.com">
           <MailIcon />
-          kontakt@dbs-auto.pl
+          dbs.zywiec@gmail.com
         </Anchor>
         <Anchor href="tel:608-674-158">
           <PhoneIcon />
