@@ -72,7 +72,7 @@ const Content = styled.p`
 const Price = styled.p`
   padding: 5% 0;
   color: rgb(30, 30, 30);
-  font-size: 0.9375rem;
+  font-size: 6rem;
   margin-left: auto;
 `;
 
@@ -114,7 +114,7 @@ export default function MediaCard({ car }) {
           <MuiButton href={car.link} type="link" size="large" color="primary">
             Link do otomoto
           </MuiButton>
-          <Price className={classes.price}>{car.price}</Price>
+          <Price className={classes.price}>{car.price + " zł"}</Price>
         </CardActions>
       </CardActionArea>
     </StyledCard>

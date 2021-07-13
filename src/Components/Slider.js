@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import W211 from "../Images/w211.jpg";
-import Oil from "../Images/AdobeStock_296204883-min.jpeg";
-import Breakes from "../Images/IMG_20200903_091034(1)-min.jpg";
+import Oil from "../Images/AdobeStock_296204883-min.webp";
+import Breakes from "../Images/IMG_20200903_091034(1)-min.webp";
 
 const Wrapper = styled.div`
   position: relative;
@@ -22,6 +22,7 @@ const ImageWrapper = styled.div`
 
 const ImageElement = styled.img`
   width: 100%;
+  max-height: 210px;
 
   @media (min-width: 760px) {
     width: 70vw;

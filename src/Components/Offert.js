@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { WrappersStyle } from "../Theme/GlobalStyles";
 
 //images
-import Detailing from "../Images/AdobeStock_296205945-min.jpeg";
-import SD from "../Images/IMG_20190507_161304(2)-min.jpg";
-import CarSale from "../Images/AdobeStock_162789700-min.jpeg";
+import Detailing from "../Images/AdobeStock_296205945-min.webp";
+import SD from "../Images/IMG_20190507_161304(2)-min.webp";
+import CarSale from "../Images/AdobeStock_162789700-min.webp";
 
 const SectionWrapper = styled.section`
   ${WrappersStyle}

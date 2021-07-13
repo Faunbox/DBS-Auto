@@ -81,6 +81,7 @@ const MuiButton = styled(Button)`
 const useStyles = makeStyles({
   price: {
     marginLeft: "auto",
+    fontSize: "1.3rem"
   },
 });
 
@@ -105,7 +106,7 @@ export default function MediaCard({ car }) {
           <MuiButton href={car.link} type="link" size="large" color="primary">
             Link do otomoto
           </MuiButton>
-          <Price className={classes.price}>{car.price}</Price>
+          <Price className={classes.price}>{car.price + " zł"}</Price>
         </CardActions>
       </CardActionArea>
     </StyledCard>

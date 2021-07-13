@@ -1,4 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
+import RobotoCondensedRegular from './fonts/RobotoCondensed-Regular.ttf'
+import RobotoCondensedBold from './fonts/RobotoCondensed-Bold.ttf'
+
+
+
 
 export const WrappersStyle = css`
   padding: 5% 10%;
@@ -27,8 +32,14 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: content-box;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'RobotoCondensed', sans-serif;
   overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: url(${RobotoCondensedRegular}), url(${RobotoCondensedBold});
+  font-style: normal;
 }
 
 html {
