@@ -1,9 +1,14 @@
-import React from "react";
+import React, { lazy } from "react";
 import styled from "styled-components";
-import Card from "./Card";
+import Progress from "../Components/Progress";
+// import Card from "./Card";
 import { WrappersStyle } from "../Theme/GlobalStyles";
 
 import { useData } from "../context/DataContext";
+import { Suspense } from "react";
+
+
+const CardComponent = lazy(() => import('./Card'))
 
 const CarsWrapper = styled.section`
   ${WrappersStyle}
@@ -33,9 +38,11 @@ const Cars = () => {
     <CarsWrapper>
       <H1>Samochody w ofercie</H1>
       <CardWrapper>
+      <Suspense fallback={<Progress />}>
         {carsData.map((car) => (
-          <Card key={car.id} car={car} />
+          <CardComponent key={car.id} car={car} />
         ))}
+      </Suspense>
       </CardWrapper>
     </CarsWrapper>
   );

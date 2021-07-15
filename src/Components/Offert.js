@@ -127,6 +127,9 @@ const Offert = () => {
               posiadają ważne badania techniczne i są gotowe do drogi. Możesz je
               sprawdzić podczas jazdy próbnej.
             </Content>
+            <Content>
+              Aktualną oferę możesz zobaczyć <a href="/samochody" >tutaj</a>
+            </Content>
           </ColumnWrapper>
         </SegmentWrapper>
 
