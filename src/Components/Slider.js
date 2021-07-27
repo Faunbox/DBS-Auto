@@ -22,7 +22,6 @@ const ImageWrapper = styled.div`
 
 const ImageElement = styled.img`
   width: 100%;
-  max-height: 210px;
 
   @media (min-width: 760px) {
     width: 70vw;

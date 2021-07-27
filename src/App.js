@@ -1,13 +1,17 @@
 import React, { lazy, Suspense } from "react";
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { DataProvider } from "./context/DataContext";
 import { AuthProvider } from "./context/AuthContex";
 // eslint-disable-next-line
 import firebase from "./Components/firebase";
 
 import Footer from "./Components/Footer";
-// import Main from "./Components/Main";
 import Nav from "./Components/Navbar";
 import Progress from "./Components/Progress";
 import CookieInfo from "./Components/CookieInfo";
@@ -32,11 +36,11 @@ function App() {
               <Route path="/oferta" component={OffertComponent} />
               <Route path="/samochody" component={CarsComponent} />
               <Route path="/kontakt" component={ContactComponent} />
-              <Route path="*" render={()=> <Redirect push to="/"/>} />
               <AuthProvider>
                 <PrivateRoute exact path="/adminPanel" component={AdminPanel} />
                 <Route path="/admin" component={AdminLogIn} />
               </AuthProvider>
+              <Route path="*" render={() => <Redirect push to="/" />} />
             </Switch>
           </Suspense>
           <Footer />

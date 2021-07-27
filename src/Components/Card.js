@@ -70,7 +70,7 @@ const Content = styled.p`
 const Price = styled.p`
   padding: 5% 0;
   color: rgb(30, 30, 30);
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   margin-left: auto;
 `;
 
@@ -81,7 +81,7 @@ const MuiButton = styled(Button)`
 const useStyles = makeStyles({
   price: {
     marginLeft: "auto",
-    fontSize: "1.3rem"
+    fontSize: "1.3rem",
   },
 });
 
