@@ -7,8 +7,7 @@ import { WrappersStyle } from "../Theme/GlobalStyles";
 import { useData } from "../context/DataContext";
 import { Suspense } from "react";
 
-
-const CardComponent = lazy(() => import('./Card'))
+const CardComponent = lazy(() => import("./Card"));
 
 const CarsWrapper = styled.section`
   ${WrappersStyle}
@@ -25,6 +24,7 @@ const CardWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  text-align: center;
   margin: 5%;
 
   @media (min-width: 973px) {
@@ -34,15 +34,18 @@ const CardWrapper = styled.div`
 
 const Cars = () => {
   const { carsData } = useData();
+
   return (
     <CarsWrapper>
       <H1>Samochody w ofercie</H1>
       <CardWrapper>
-      <Suspense fallback={<Progress />}>
-        {carsData.map((car) => (
-          <CardComponent key={car.id} car={car} />
-        ))}
-      </Suspense>
+        <Suspense fallback={<Progress />}>
+          {carsData.length === 0 ? (
+            <p>Brak samochodów w ofercie. Wróć za jakiś czas</p>
+          ) : (
+            carsData.map((car) => <CardComponent key={car.id} car={car} />)
+          )}
+        </Suspense>
       </CardWrapper>
     </CarsWrapper>
   );
