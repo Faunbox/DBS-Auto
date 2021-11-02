@@ -5,8 +5,6 @@ import styled from "styled-components";
 import Input from "@material-ui/core/Input";
 import { makeStyles } from "@material-ui/core";
 
-import { db, storage } from "../Components/firebase";
-
 import { useData } from "../context/DataContext";
 import { useAuth } from "../context/AuthContex";
 
@@ -39,10 +37,8 @@ export default function AdminPanel() {
   const [carDescription, setDescription] = useState();
   const [carPrice, setCarPrice] = useState();
   const [carImage, setCarImage] = useState();
-  const [isUpload, setIsUpload] = useState(false);
-  const [uploadProcente, setUploadProcente] = useState();
 
-  const { addCarData } = useData();
+  const { addCarData, isUpload, uploadProcente } = useData();
   const { logout } = useAuth();
   const classes = useStyles();
 
@@ -57,39 +53,15 @@ export default function AdminPanel() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setUploadProcente();
-    const imageRef = storage.ref().child(carImage.name).put(carImage);
-
-    imageRef.on(
-      "state_changed",
-      //on uploading
-      (snapshot) => {
-        setUploadProcente("");
-        setIsUpload(true);
-        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProcente(Math.floor(progress));
-      },
-      //on error
-      (error) => console.log(error),
-      //On complete
-      async () => {
-        let url = await storage.ref(carImage.name).getDownloadURL();
-        db.collection("cars_list")
-          .add(
-            addCarData(
-              carName,
-              carEngine,
-              carYear,
-              carDescription,
-              carPrice,
-              carLink,
-              url,
-              carImage.name
-            )
-          )
-          .catch((err) => console.log("błąd numer:" + err.code));
-        setTimeout(() => setIsUpload(false), 4000);
-      }
+    await addCarData(
+      carName,
+      carEngine,
+      carYear,
+      carDescription,
+      carPrice,
+      carLink,
+      carImage,
+      carImage.name
     );
 
     clearAllTextFields();
