@@ -46,6 +46,7 @@ const NavBar = () => {
       return getNavbarHeight;
     }
     window.addEventListener("scroll", getNavbarHeight);
+    return getNavbarHeight();
   }, [NavbarRef]);
 
   return (

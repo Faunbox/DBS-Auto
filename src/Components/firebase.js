@@ -26,7 +26,7 @@ const dev = {
   appId: "1:1004195093305:web:068bfcb54b48f68e0f66e8",
 };
 
-const actualConfig = dev;
+const actualConfig = prod;
 
 //prod config
 const firebaseConfig = initializeApp(actualConfig);

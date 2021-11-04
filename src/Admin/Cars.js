@@ -33,9 +33,11 @@ const Cars = () => {
     <CarsWrapper>
       <H1>Samochody w ofercie</H1>
       <CardWrapper>
-        {carsData.map((car) => (
-          <Card key={car.id} car={car} />
-        ))}
+        {carsData.length === 0 ? (
+          <p>Brak samochodów w ofercie. Wróć za jakiś czas</p>
+        ) : (
+          carsData.map((car) => <Card key={car.id} car={car} />)
+        )}
       </CardWrapper>
     </CarsWrapper>
   );
